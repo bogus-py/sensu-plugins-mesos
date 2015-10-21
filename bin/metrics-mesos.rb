@@ -63,10 +63,10 @@ class MesosMetrics < Sensu::Plugin::Metric::CLI::Graphite
     case config[:mode]
     when 'master'
       port = '5050'
-      uri = '/master/stats.json'
+      uri = '/metrics/snapshot'
     when 'slave'
       port = '5051'
-      uri = '/slave(1)/stats.json'
+      uri = '/metrics/snapshot'
     end
     scheme = "#{config[:scheme]}.mesos-#{config[:mode]}"
     begin
